@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/HomePage.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>GET COMPETITION</title>
+    <style>
+        .accordion {
+          background-color: #eee;
+          color: #444;
+          cursor: pointer;
+          padding: 18px;
+          width: 100%;
+          border: none;
+          text-align: left;
+          outline: none;
+          font-size: 15px;
+          transition: 0.4s;
+        }
+        
+        .active, .accordion:hover {
+          background-color: #ccc;
+        }
+        
+        .accordion:after {
+          content: '\002B';
+          color: #777;
+          font-weight: bold;
+          float: right;
+          margin-left: 5px;
+        }
+        
+        .active:after {
+          content: "\2212";
+        }
+        
+        .panel {
+          padding: 0 18px;
+          background-color: white;
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.2s ease-out;
+        }
+        </style>
+</head>
+<body>
+   
+    <div class="main_header" id="grad1" style="text-decoration: none;background-color: black;">
+        <span style="float: left;color: white;font-size: 60px;width:20%;">
+            <img src="/images/logo.png" style="width:100%;margin:20px">
+        </span>
+        <span style="float: left;color: white;margin-top: 40px;
+    font-family: 'Press Start 2P';font-size: 30px">
+            GAME<br>VAMP
+        </span>
+        <span >
+            <div class="topnav" style="text-decoration: none;">
+                <a  href="/">Home</a>
+                <a href="/games">Games</a>
+                <a href="/news">News</a>
+                <a href="/teams/team-list">Teams</a>
+                <a href="/user_match/match">Matches</a>
+                <a class="active" href="/api">Tournaments</a>
+                <a href="/aboutus">About</a>
+                <form style="display: inline;" method="POST" action="/logout">
+                    <a>
+                        <button type="submit" class="btn btn-primary" style="background-color:black; outline: none;border: none;">Log out</button>
+                    </a>
+                </form>
+            </div>
+        </span>
+    </div>
+    
+        <%if(error.length==1){ %>
+            <script>
+                alert("Hey! You have registered already");
+            </script>
+            <%}%>
+        <div style="display: flex;">
+        <div style="margin-top: 160px !important;float:left; width:66%;margin-bottom:50px" class="container mt-4">
+            <button class="accordion">Your teams </button>
+            <div class="panel">
+                <div>
+                    <div class="table-data">
+                        <table class="table_">
+                            <tr>
+                                <th>S.N</th>
+                                <th>Team Name</th>
+                                <th>Member One</th>
+                                <th>Member Two</th>
+                                <th>Member Three</th>
+                                <th>Member Four</th>
+                                <th>Member Five</th>
+                                <th>Select Team</th>
+                            </tr>
+        
+                            <% if(userData.length!=0){ var i=1; userData.forEach(function(data1){ %>
+                                <tr>
+                                    <td>
+                                        <%=i; %>
+                                    </td>
+                                    <td>
+                                        <%=data1.teamname %>
+                                    </td>
+                                    <td>
+                                        <%=data1.member1 %>
+                                    </td>
+                                    <td>
+                                        <%=data1.member2 %>
+                                    </td>
+                                    <td>
+                                        <%=data1.member3 %>
+                                    </td>
+                                    <td>
+                                        <%=data1.member4 %>
+                                    </td>
+                                    <td>
+                                        <%=data1.member5 %>
+                                    </td>
+                                    <td><a href="/teams/select/<%=data1.id%>/<%=data.id%>"><button class="table_button">SELECT</button></a> </td>
+                                </tr>
+                                <% i++; }) %>
+                                    <% } else{ %>
+                                        <tr>
+                                            <td colspan="7">No Teams Found</td>
+                                        </tr>
+                                        <% } %>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <button class="accordion">Create a team </button>
+            <div class="panel">
+                <div>
+                        <form method="POST" style="margin: 50px;" action="/teams" autocomplete="off">
+                            <table class="add_match_table">
+                                <tr>
+                                    <td>
+                                        <div class="form-group">
+                                            <label for="teamname">Team Name</label>
+                                            <input type="text" name="teamname" id="teamname" class="form-control" placeholder="Team name" required>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-group">
+                                            <label for="member1">Captain ( you )</label>
+                                            <input type="text" id="member1" class="form-control" value="<%=name%>" name="member1" required>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <label for="member2">Member Two</label>
+                                            <input type="text" class="form-control" id="member2" name="member2" required>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-group">
+                                            <label for="member3">Member Three</label>
+                                            <input type="text" class="form-control" id="member3" name="member3" required>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <label for="member4">Member Four</label>
+                                            <input type="text" class="form-control" id="member4" name="member4" required>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-group">
+                                            <label for="member5">Member Five</label>
+                                            <input type="text" class="form-control" id="member5" name="member5" required>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <button type="submit" class="btn btn-primary">Finalize</button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+                </div>
+            </div>
+        </div>
+        <div style="background-color: rgb(5, 83, 83);float: left;display: flex;margin-top: 160px;margin-right:130px;border-radius: 20px;padding: 20px;color: white;height: 50%;">
+            <h1 style="margin-top: 100px;text-align: center;">Tournament Details</h1>
+          
+            <hr>
+            <table style="margin: 20px;color: white;" class="table_">
+                <tr>
+                    <td>
+                        Name:
+                    </td>
+                    <td>
+                        <%=data.name%>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Game Name:
+                    </td>
+                    <td>
+                        <%=data.sportAlias%>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Start Date:
+                    </td>
+                    <td>
+                        <%= moment(data.startDate).format('Do MMMM, YYYY') %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        End Date:
+                    </td>
+                    <td>
+                        <%= moment(data.endDate).format('Do MMMM, YYYY') %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Prize Pool(USD) :
+                    </td>
+                    <td>
+                        <%= data.prizePoolUSD %>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        </div>
+        <div style="clear: both" class="main_footer" id="grad2">
+            <hr style="width: 50%">
+            <br><br><br>
+            <h3 style="text-align: center;color: white">
+                <img src="/images/twitch.png" style="width: 5%;">
+                    Watch your favourite streamers
+            </h3>
+            <br><br><br>
+        </div>
+        <script>
+     var acc = document.getElementsByClassName("accordion");
+     var i;
+     
+     for (i = 0; i < acc.length; i++) {
+       acc[i].addEventListener("click", function() {
+         this.classList.toggle("active");
+         var panel = this.nextElementSibling;
+         if (panel.style.maxHeight) {
+           panel.style.maxHeight = null;
+         } else {
+           panel.style.maxHeight = panel.scrollHeight + "px";
+         } 
+       });
+     }
+     </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+</html>

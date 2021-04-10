@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Participant's details</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/HomePage.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+    </style>
+</head>
+<body style="background-image: url(https://free4kwallpapers.com/uploads/originals/2020/05/19/pyramids-neon-wallpaper.jpg);">
+    <div class="main_header" style="background-color: #11111dab;">
+        <span style="float: left;color: white;font-size: 60px;width:20%;">
+            <img src="/images/logo.png" style="width:100%;margin:20px">
+        </span>
+        <span style="float: left;color: white;margin-top: 40px;
+    font-family: 'Press Start 2P';font-size: 15px">
+            GAME<br>VAMP<br><span>(Admin)</span>
+        </span>
+        <span>
+            <div class="topnav">
+                <a href="/admin">Admin</a>
+                <a href="/add_match">Matches</a>
+                <a href="/users/user-list">Users</a>
+                <a href="/reports/report-list">Reports</a>
+                <a class="active" href="/reg_teams">Registered teams</a>
+                <a href="/login">Logout</a>
+            </div>
+        </span>
+    </div>
+    <br>
+    <div style="display: flex;">
+    <div style="margin-top: 160px !important;float:left;width:66%;margin-bottom:50px" class="container mt-4">
+        <div class=" form_body">
+            <div class="card-header">
+                <h2>View User Details</h2>
+            </div>
+           
+            <div class="card-body">                
+                    <h2>Selected team's Info </h2>
+                    <% if (data1.length!=0){%>
+                        <table class="table_">
+                            <tr>
+                                <th>ID</th>
+                                <th>NAME</th>
+                            </tr>
+                        
+                        <% data1.forEach (function(data){  %>
+                           <tr>
+                               <td><%= data.id %></td>
+                               <td><%= data.name%></td>
+                           </tr>
+                        <%})%>
+                        </table>
+                        <% } else if(data.length!=0){ %>   
+                            <a>ID : <%=data.id %></a>
+                            <a>NAME: <%=data.name%></a>
+                            <a > COUNTRY: <%=data.country%></a>
+                            <table class="table_">
+                                <tr>
+                                    <th>LINEUP  </th>
+                                </tr>
+                                <tr>                           
+                                    <th>ID</th>       
+                                    <th>NAME</th>                     
+                                </tr>
+                                <%var i =0; if((data.most_recent_lineup)!=null){ data.most_recent_lineup.forEach(function(data){ %>
+                                <tr>                  
+                                    <td>
+                                        <%=data.id%>
+                                    </td>
+                                    <td>
+                                        <%= data.name %>
+                                    </td>
+                                    <% })%>
+                                </tr>
+                                <%} else{ %>
+                                        <tr>
+                                            <td colspan="7">No Data Found</td>
+                                        </tr>
+                                    <%}%>
+                                    <%}else {%>
+                                        
+                                        <%}%>
+                    </table>
+            </div>
+        </div>
+    </div>
+    <div >
+        <img src="https://media4.giphy.com/media/3ov9jLYWb4zCjGfqIE/source.gif">
+    </div>
+</div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+</html>

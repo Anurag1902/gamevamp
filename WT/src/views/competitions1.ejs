@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/HomePage.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>GET COMPETITION</title>
+</head>
+<body>
+    <div class="main_header" id="grad1" style="text-decoration: none;background-color: black;">
+        <span style="float: left;color: white;font-size: 60px;width:20%;">
+            <img src="/images/logo.png" style="width:100%;margin:20px">
+        </span>
+        <span style="float: left;color: white;margin-top: 40px;
+    font-family: 'Press Start 2P';font-size: 30px">
+            GAME<br>VAMP
+        </span>
+        <span >
+            <div class="topnav" style="text-decoration: none;">
+                <a  href="/">Home</a>
+                <a href="/games">Games</a>
+                <a href="#news">News</a>
+                <a href="/teams/team-list">Teams</a>
+                <a class="active" href="/user_match/match">Matches</a>
+                <a href="/api">Tournaments</a>
+                <a href="/aboutus">About</a>
+                <form style="display: inline;" method="POST" action="/logout">
+                    <a>
+                        <button type="submit" class="btn btn-primary" style="background-color:black; outline: none;border: none;">Log out</button>
+                    </a>
+                </form>
+            </div>
+        </span>
+    </div>
+        <div style="margin-top: 160px !important;float:left;width:66%;margin-bottom:50px" class="container mt-4">
+            <button class="accordion">Your teams </button>
+            <div class="panel">
+                <div>
+                    <div class="table-data">
+                        <table class="table_">
+                            <tr>
+                                <th>S.N</th>
+                                <th>Team Name</th>
+                                <th>Member One</th>
+                                <th>Member Two</th>
+                                <th>Member Three</th>
+                                <th>Member Four</th>
+                                <th>Member Five</th>
+                                <th>Select Team</th>
+                            </tr>
+        
+                            <% if(userData.length!=0){ var i=1; userData.forEach(function(data1){ %>
+                                <tr>
+                                    <td>
+                                        <%=i; %>
+                                    </td>
+                                    <td>
+                                        <%=data1.teamname %>
+                                    </td>
+                                    <td>
+                                        <%=data1.member1 %>
+                                    </td>
+                                    <td>
+                                        <%=data1.member2 %>
+                                    </td>
+                                    <td>
+                                        <%=data1.member3 %>
+                                    </td>
+                                    <td>
+                                        <%=data1.member4 %>
+                                    </td>
+                                    <td>
+                                        <%=data1.member5 %>
+                                    </td>
+                                    <td><a href="/teams/select/<%=data1.id%>/<%=data.id%>"><button class="table_button">SELECT</button></a> </td>
+                                </tr>
+                                <% i++; }) %>
+                                    <% } else{ %>
+                                        <tr>
+                                            <td colspan="7">No Teams Found</td>
+                                        </tr>
+                                        <% } %>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        
+        <div style="background-color: rgb(5, 83, 83);float: right;margin-top: 160px;margin-right:130px;border-radius: 20px;padding: 20px;color: white;">
+            <h1>Tournament details</h1>
+            <hr>
+            <table style="margin: 20px;color: white;" class="table_">
+                <tr>
+                    <td>
+                        Name:
+                    </td>
+                    <td>
+                        <%=data.name%>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Game Name:
+                    </td>
+                    <td>
+                        <%=data.sportAlias%>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Start Date:
+                    </td>
+                    <td>
+                        <%= moment(data.startDate).format('Do MMMM, YYYY') %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        End Date:
+                    </td>
+                    <td>
+                        <%= moment(data.endDate).format('Do MMMM, YYYY') %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Prize Pool in USD
+                    </td>
+                    <td>
+                        <%= data.prizePoolUSD %>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div style="clear: both" class="main_footer" id="grad2">
+            <hr style="width: 50%">
+            <br><br><br>
+            <h3 style="text-align: center;color: white">
+                <img src="/images/twitch.png" style="width: 5%;">
+                    Watch your favourite streamers
+            </h3>
+            <br><br><br>
+        </div>
+        <script>
+     var acc = document.getElementsByClassName("accordion");
+     var i;
+     
+     for (i = 0; i < acc.length; i++) {
+       acc[i].addEventListener("click", function() {
+         this.classList.toggle("active");
+         var panel = this.nextElementSibling;
+         if (panel.style.maxHeight) {
+           panel.style.maxHeight = null;
+         } else {
+           panel.style.maxHeight = panel.scrollHeight + "px";
+         } 
+       });
+     }
+     </script>
+</body>
+</html>

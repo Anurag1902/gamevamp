@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script>
+        function cookie_create()
+        {
+            var ck = document.getElementById("email").value;
+            Cookies.set('name',ck );
+            Cookies.set('name1', 'j:' + JSON.stringify({ key: "user6" }))
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+    </style>
+</head>
+<body style="background-image: url(https://cdna.artstation.com/p/assets/images/images/021/720/920/original/pixel-jeff-mario.gif?1572709433);background-size: cover;">
+<div class="container" style="float: left;margin-left: 10%;">
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-5 mt-2" style="color :white;backdrop-filter: blur(10px);background-color: rgba(255, 255, 255, 0);box-shadow: 2px 2px 25px black;
+            border-radius: 15px;
+            padding: 80px;">
+                <div>
+                    <% if(errors != "") { %>
+                        <% errors.forEach((item) => { %>
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <%- item %>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        <% }); %>
+                    <% } %>
+                    
+                </div>
+                <form method="POST" action="/login" autocomplete="off">
+                    <div class="form-group">
+                        <label for="email">Email address:</label>
+                        <input type="email" class="form-control" id="email" name="email"  placeholder="Enter email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary" onclick="cookie_create()">Login</button>
+                </form>
+                <hr>
+                <div style="text-align: center;">
+                    New User?, Sign up instead<br>
+                    <a href="/register"><button class="btn btn-primary" style="margin-top: 10px;">Sign-up</button></a>
+                </div>
+                <br><br>
+               
+            </div>
+        </div>
+    </div>
+</div>
+<a href="/admin_login"><button style=" border: none  ;outline: none; background-color: rgb(0 0 0 / 0%);padding: 30px;"></button></a>
+<div class="col-7 login-left" style="float: right;position: absolute;left: 41%;">
+    <img src="../images/logo.png" style="width:100%;margin-top: 8%;">
+    <span style="font-family: 'Press Start 2P', cursive;
+    font-size: 55px;
+    text-shadow: 6px -3px 0em rgb(209 159 228);
+    color: #a92782;
+    margin-left: 179px;">GAME VAMP</span>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>Teams</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="/css/HomePage.css">
+        <link rel="stylesheet" href="/css/style.css">
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+              integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+        </style>
+        <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+</head>
+<body style="background-image: url(https://free4kwallpapers.com/uploads/originals/2020/05/19/pyramids-neon-wallpaper.jpg);">
+    <div class="main_header" style="background-color: #11111dab;">
+        <span style="float: left;color: white;font-size: 60px;width:20%;">
+            <img src="/images/logo.png" style="width:100%;margin:20px">
+        </span>
+        <span style="float: left;color: white;margin-top: 40px;
+    font-family: 'Press Start 2P';font-size: 15px">
+            GAME<br>VAMP<br><span>(Admin)</span>
+        </span>
+        <span>
+            <div class="topnav">
+                <a href="/admin">Admin</a>
+                <a href="/add_match">Matches</a>
+                <a href="/users/user-list">Users</a>
+                <a href="/reports/report-list">Reports</a>
+                <a class="active" href="/reg_teams">Registered teams</a>
+                <a href="/login">Logout</a>
+            </div>
+        </span>
+    </div>
+        <br>
+        <div>
+        <div style="margin-top: 160px !important;float:left;width:66%;margin-bottom:50px" class="container mt-4">
+            <div class=" form_body">
+                <div class="card-header">
+                    <h2>View Tournament Details</h2>
+                </div>
+                <div class="topnav" style="text-decoration: none;float: none !important;background-color: rgb(68, 68, 68) ;">
+                    <a href="/reg_teams"><strong> CS:GO </strong></a>
+                    <a class="active" href="/reg_teams/reg_teams_dota2"><strong> Dota 2 </strong></a>
+                    <a href="/reg_teams/reg_teams_lol"><strong> League Of Legends </strong></a>
+                </div>
+                <div class="card-body">                
+                    <div>
+                        <table class="table_" style="width:100%;color: white;">
+                            <tr>
+                                <th>Name</th>
+                                <th>Game Name</th>
+                                <th>Startdate</th>
+                                <th>EndDate</th>
+                                <th>PrizePool</th>
+                                <th>Register here</th>
+                            </tr>
+                            <% data1.forEach(function(data){ %>
+                            <tr>
+                                <td><%= data.name%></td>
+                                <td><%= data.sportAlias%></td>
+                                <td><%= moment(data.startDate).format('Do MMMM, YYYY') %></td>
+                                <td>
+                                    <%= moment(data.endDate).format('Do MMMM, YYYY') %>
+                                </td>
+                                <td><%= data.prizePoolUSD %></td>
+                                
+                                <td ><a href="/participants/<%= data.id%>"><button class="table_button">Registered teams</button></a></td>
+                            </tr>
+                            <% }); %>
+                        </table>
+                        </div> 
+                </div>
+        </div>
+    </div>
+    <div >
+        <img style="margin-top: 160px;" src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/a80c8979-22d6-49c7-bca4-97613a4a9237/d5rwxvz-357aa2e8-9f3c-4a09-b049-154f7617df70.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvYTgwYzg5NzktMjJkNi00OWM3LWJjYTQtOTc2MTNhNGE5MjM3XC9kNXJ3eHZ6LTM1N2FhMmU4LTlmM2MtNGEwOS1iMDQ5LTE1NGY3NjE3ZGY3MC5naWYifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.kGXR-Ys-3yIgtoR548UqZi9FK98IPGmKtlXNK-echd4">
+    </div>
+    </div>
+    
+        <div style="clear: both" class="main_footer" id="grad2">
+           <hr style="width: 50%">
+           <br><br><br>
+           <h3 style="text-align: center;color: white">
+               <img src="/images/twitch.png" style="width: 5%;">
+                   Watch your favourite streamers
+           </h3>
+           <br><br><br>
+       </div>
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+        
+        for (i = 0; i < acc.length; i++) {
+          acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+              panel.style.maxHeight = null;
+            } else {
+              panel.style.maxHeight = panel.scrollHeight + "px";
+            } 
+          });
+        }
+        </script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+            <script>
+                document.getElementById("cookie_see").innerHTML=Cookies.get('name');
+                JSON.parse(Cookies.get('name1').slice(2))
+            </script>
+</body>
+</html>

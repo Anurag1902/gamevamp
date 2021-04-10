@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Infp</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>id</th>
+            <th>firstName</th>
+            <th>lastName</th>
+            <th>age</th>
+            <th>country</th>
+        </tr>
+        <%  if(data.length!=0){  %>
+            <tr>
+                <td><%=data.id%></td>
+                <td><%=data.firstName%></td>
+                <td><%=data.lastName%></td>
+                <td><%=data.age%></td>
+                <td><%=data.country%></td>
+                <td><%=data.countryISO%></td>
+            </tr>
+            <% }else {%>
+                <tr>
+                    <td>No Data found</td>
+                </tr>
+    </table>
+</body>
+</html>
