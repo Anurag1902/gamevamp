@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" style="background-color: #0b070e;">
+<head>
+    <title>Teams</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/HomePage.css" !important>
+    <link rel="stylesheet" href="/css/style.css">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    
+    <style>
+        
+        </style>
+</head>
+<body>
+    <div class="main_header" id="grad1" style="text-decoration: none;background-color: #1c1324;;">
+        <span style="float: left;color: white;font-size: 60px;width:20%;">
+            <img src="/images/logo.png" style="width:100%;margin:20px">
+        </span>
+        <span style="float: left;color: white;margin-top: 40px;
+    font-family: 'Press Start 2P';font-size: 30px">
+            GAME<br>VAMP
+        </span>
+        <span >
+            <div class="topnav" style="text-decoration: none;">
+                <a  href="/">Home</a>
+                <a href="/games">Games</a>
+                <a href="#news">News</a>
+                <a class="active" href="/teams/team-list">Teams</a>
+                <a href="/user_match/match">Matches</a>
+                <a href="/api">Tournaments</a>
+                <a href="/aboutus">About</a>
+                <form style="display: inline;" method="POST" action="/logout">
+                    <a>
+                        <button type="submit" class="btn btn-primary" style="background-color:#1c1324;; outline: none;border: none;" >Log out</button>
+                    </a>
+                </form>
+            </div>
+        </span>
+
+    </div>
+    <br>
+    <div style="margin-top: 160px !important;float:left;width:66%;margin-bottom:50px" class="container mt-4">
+        <div class=" form_body">
+            <div class="card-header">
+                <h2>Edit Team Details</h2>
+            </div>
+           
+            <div class="card-body">                
+                <form action="<%=(typeof editData!='undefined')?'/teams/edit/'+editData.id:'/teams/create'%>" method="POST" autocomplete="off">
+                    <table class="add_match_table">
+                        <tr>
+                            <td>
+                                <div class="form-group">
+                                    <label>Team Name</label>
+                                    <input type="text" placeholder="Enter Team Name" name="teamname" required
+                                    value="<%=(typeof editData!='undefined')? editData.teamname:''%>">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="form-group">
+                                    <label>Member 1</label>
+                                    <input type="text" placeholder="Member 1" name="member1" required
+                                        value="<%=(typeof editData!='undefined')? editData.member1:''%>">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group left-inner-addon">
+                                    <label>Member 2</label>
+                                    <input type="text" placeholder="Member 2" name="member2" required
+                                        value="<%=(typeof editData!='undefined')? editData.member2:''%>">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="form-group">
+                                    <label>Member 3</label>
+                                    <input type="text" placeholder="Member 3" name="member3" required
+                                        value="<%=(typeof editData!='undefined')? editData.member3:''%>">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <label>Member 4</label>
+                                    <input type="text" placeholder="Member 4" name="member4" required
+                                        value="<%=(typeof editData!='undefined')? editData.member4:''%>">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="form-group left-inner-addon">
+                                    <label>Member 5</label>
+                        <input type="text" placeholder="Member 5" name="member5" required
+                            value="<%=(typeof editData!='undefined')? editData.member5:''%>">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button type="submit" style="outline: none;border: none;padding: 10px; border-radius: 10px;">Submit</button>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <code></code>
+    </div>  
+    <div class="logged_disp" style="border: none;">
+        <span>
+            <img src="/images/teams.png" style="width: 140%;margin-left: -70px;">
+        </span>
+         <h1 style="color: blanchedalmond;">Logged in as <span id="cookie_see"></span></h1>
+    </div>
+<script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+    
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.maxHeight) {
+          panel.style.maxHeight = null;
+        } else {
+          panel.style.maxHeight = panel.scrollHeight + "px";
+        } 
+      });
+    }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+        <script>
+            document.getElementById("cookie_see").innerHTML=Cookies.get('name');
+            JSON.parse(Cookies.get('name1').slice(2))
+        </script>
+</body>
+</html>
+

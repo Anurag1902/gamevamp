@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Game Vamp</title>
+    <link rel="stylesheet" href="/css/HomePage.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Press+Start+2P&display=swap');
+    </style>
+</head>
+
+<body>
+    <div class="main_header" id="grad1">
+        <span style="float: left;color: white;font-size: 60px;width:20%;">
+            <img src="/images/logo.png" style="width:100%;margin:20px">
+        </span>
+        <span style="float: left;color: white;margin-top: 40px;
+        font-family: 'Press Start 2P';font-size: 30px">
+            GAME<br>VAMP
+        </span>
+        <span >
+            <div class="topnav">
+                <a class="active" href="/">Home</a>
+                <a href="/games">Games</a>
+                <a href="/news">News</a>
+                <a href="/teams/team-list">Teams</a>
+                <a href="/user_match/match">Matches</a>
+                <a href="/api">Tournaments</a>
+                <a href="/aboutus">About</a>
+                <form style="display: inline;" method="POST" action="/logout">
+                    <a>
+                        <button type="submit" class="btn btn-primary" >Log out</button>
+                    </a>
+                </form>
+            </div>
+        </span>
+
+    </div>
+    <div>
+        <span style="float: left;width: 33%;margin-top: 23%">
+            <div style="float: left; margin-top: 15%" class='wrapper1'>
+                <div class='carousel'>
+                    <div class='carousel__item'>
+                        <div class='carousel__item-head'>
+                            <img src="https://upload.wikimedia.org/wikipedia/sco/thumb/2/21/Nvidia_logo.svg/1200px-Nvidia_logo.svg.png"
+                                width="75%">
+                        </div>
+                        <div class='carousel__item-body'>
+                            <p class='title'>Nvidia Tournaments</p>
+                        </div>
+                    </div>
+
+                    <div class='carousel__item'>
+                        <div class='carousel__item-head'>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/ESL_Horizontal_Logo_2019.svg/1200px-ESL_Horizontal_Logo_2019.svg.png"
+                                width="90%">
+                        </div>
+                        <div class='carousel__item-body'>
+                            <p class='title'>ESL Tournaments</p>
+                        </div>
+                    </div>
+                    <div class='carousel__item'>
+                        <div class='carousel__item-head'>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Blizzard_Entertainment_Logo.svg/1280px-Blizzard_Entertainment_Logo.svg.png"
+                                width="90%">
+                        </div>
+                        <div class='carousel__item-body'>
+                            <p class='title'>Battle.net world Championship</p>
+                            <p>Blizzcon</p>
+                        </div>
+                    </div>
+                    <div class='carousel__item'>
+                        <div class='carousel__item-head'>
+                            <img src="https://upload.wikimedia.org/wikipedia/de/f/f8/DreamHack-logo.png" width="100%">
+                        </div>
+                        <div class='carousel__item-body'>
+                            <p class='title'>DreamHack</p>
+                        </div>
+                    </div>
+                    <div class='carousel__item'>
+                        <div class='carousel__item-head'>
+                            <img src="https://upload.wikimedia.org/wikipedia/en/d/da/Blast_Premier_logo.png"
+                                width="100%">
+                        </div>
+                        <div class='carousel__item-body'>
+                            <p class='title'>Blast Premier</p>
+                        </div>
+                    </div>
+                    <div class='carousel__item'>
+                        <div class='carousel__item-head'>
+                            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/7/74/Overwatch_League_logo.svg/1200px-Overwatch_League_logo.svg.png"
+                                width="100%">
+                        </div>
+                        <div class='carousel__item-body'>
+                            <p class='title'>OverWatch League</p>
+
+                        </div>
+                    </div>
+                    <div class='carousel__item'>
+                        <div class='carousel__item-head'>
+                            <img src="https://external-preview.redd.it/1W_Xgkj5Lzbp9SHtNQ2spCn-xMLpSiSMTvpOflZ5rrk.png?auto=webp&s=555a27fd5f64ec8cc669acb33915d986e3aeefab"
+                                width="75%">
+                        </div>
+                        <div class='carousel__item-body'>
+                            <p class='title'>Rocket League</p>
+                        </div>
+                    </div>
+                    <div class='carousel__item'>
+                        <div class='carousel__item-head'>
+                            <img src="https://gtswiki.gt-beginners.net/decal/png/16/08/45/6278580907820450816_1.png"
+                                width="100%">
+                        </div>
+                        <div class='carousel__item-body'>
+                            <p class='title'>Rainbow Six Siege</p>
+                        </div>
+                    </div>
+                    <div class='carousel__item'>
+                        <div class='carousel__item-head'>
+                            <img src="https://wp-uploads.couchwarriors.org/2014/04/capcom-pro-tour-logo-1024x1002.png"
+                                width="75%">
+                        </div>
+                        <div class='carousel__item-body'>
+                            <p class='title'>Capcom Cup</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </span>
+        <span style="float: right">
+            <!-- Slideshow container -->
+            <div class="slideshow-container" style="padding-top: 10px;">
+                <!-- Full-width images with number and caption text -->
+                <div class="mySlides fade">
+                    <img src="https://cdn1.dotesports.com/wp-content/uploads/2021/02/04111306/00-vct-cover-v1.jpg"
+                        style="width: 100%;margin-top: 15%;margin-left: 0%;">
+                    <div class="text"></div>
+                </div>
+                <div class="mySlides fade">
+                    <img src="https://estnn.com/wp-content/uploads/2020/03/esl-pro-league-header.jpg" style="width: 100%;margin-top: 15%;margin-left: 0%;">
+                    <div class="text"> </div>
+                </div>
+                <div class="mySlides fade">
+                    <img src="https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/bltcfa4652c8d383f56/5e21837f63d1b6503160d39b/Home-page.jpg"
+                        style="width: 100%;margin-top: 15%;margin-left: 0%;">
+                    <div class="text"></div>
+                </div>
+
+                <!-- Next and previous buttons -->
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+            <br>
+        </span>
+    </div>
+    <div style="clear: both;font-size: 50px;text-align: center;color: white;padding: 50px"></div>
+    <!--=====================================-->
+    <script>
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        // Next/previous controls
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        // Thumbnail image controls
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("dot");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+        }
+    </script>
+    <!--=====================================-->
+    <div class="parallax" style="clear: both;padding: 175px;text-align: center;font-size: 30px;">
+        <h1 class="glitch" data-text="Pros Don't Fake">Pros Don't Fake</h1>
+    </div>
+    <div>
+        <h1 style="margin-left: 50px;color: white">GAMES</h1>
+        <hr style="margin-right: 500px;margin-left: 50px">
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span id="close" class="close">&times;</span>
+                    <h2 style="width: 70%" id="gamename">Modal Header</h2>
+                </div>
+                <div class="modal-body">
+                    <p><img src="https://storage-asset.msi.com/event/2019/esl-partner/images/esl-logo-2.png" style="width: 35%;">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/3/36/Evo_Championship_Series_Logo.png" style="width: 20%;"></p>
+                </div>
+                <div class="modal-footer">
+                    <button>See more</button>
+                </div>
+            </div>
+        </div>
+        <!--===================================-->
+        <div class="wrapper">
+            <div class="cards">
+                <button id="dota">
+                    <figure class="card">
+                        <img src="https://static-cdn.jtvnw.net/ttv-boxart/Dota%202.jpg" />
+                        <figcaption id="dota2">Dota 2</figcaption>
+                    </figure>
+                </button>
+                <button id="csgo">
+                    <figure class="card">
+                        <img src="https://picfiles.alphacoders.com/145/thumb-145318.jpg" />
+                        <figcaption id="cs">CSGO</figcaption>
+                    </figure>
+                </button>
+                <button id="valo">
+                    <figure class="card">
+                        <img src="https://images-na.ssl-images-amazon.com/images/I/71Rm-bSojSL._AC_SL1500_.jpg" />
+                        <figcaption id="valorant">Valorant</figcaption>
+                    </figure>
+                </button>
+                <button id="ow">
+                    <figure class="card">
+                        <img
+                            src="https://cdna.artstation.com/p/assets/images/images/007/977/966/medium/will-murai-blizzcon2017-0003-overwatch.jpg?1509676862" />
+                        <figcaption id="overwatch">Overwatch</figcaption>
+                    </figure>
+                </button>
+                <button id="lol">
+                    <figure class="card">
+                        <img
+                            src="https://cdna.artstation.com/p/assets/images/images/018/649/488/large/jay-league-of-legends-poster.jpg?1560191675" />
+                        <figcaption id="league">League of Legends</figcaption>
+                    </figure>
+                </button>
+                <a href="/games">
+                    <button class="game_butt">
+                        View More >>
+                    </button>
+                </a>
+                <script>
+                    var close = document.getElementById("close");
+                    // Get the modal
+                    var modal = document.getElementById("myModal");
+
+                    // Get the button that opens the modal
+                    var dota = document.getElementById("dota");
+                    var csgo = document.getElementById("csgo");
+                    var valo = document.getElementById("valo");
+                    var ow = document.getElementById("ow");
+                    var lol = document.getElementById("lol");
+                    var rl = document.getElementById("rl");
+                    var fn = document.getElementById("fn");
+                    var r6s = document.getElementById("r6s");
+                    var ff = document.getElementById("ff");
+                    var ssb = document.getElementById("ssb");
+                    var rc = document.getElementById("rc");
+                    var pg = document.getElementById("pg");
+
+                    // Get the <span> element that closes the modal
+                    var span = document.getElementsByClassName("close")[0];
+
+                    // When the user clicks the button, open the modal
+        // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        close.onclick = function() {
+            modal.style.display = "none";
+        }
+                    // When the user clicks the button, open the modal
+
+                    dota.onclick = function () {
+                        modal.style.display = "block";
+                        document.getElementById("gamename").innerHTML = document.getElementById("dota2").innerHTML;
+                    }
+                    csgo.onclick = function () {
+                        modal.style.display = "block";
+                        document.getElementById("gamename").innerHTML = document.getElementById("cs").innerHTML;
+                    }
+                    valo.onclick = function () {
+                        modal.style.display = "block";
+                        document.getElementById("gamename").innerHTML = document.getElementById("valorant").innerHTML;
+                    }
+                    ow.onclick = function () {
+                        modal.style.display = "block";
+                        document.getElementById("gamename").innerHTML = document.getElementById("overwatch").innerHTML;
+                    }
+                    lol.onclick = function () {
+                        modal.style.display = "block";
+                        document.getElementById("gamename").innerHTML = document.getElementById("league").innerHTML;
+                    }
+                    rl.onclick = function () {
+                        modal.style.display = "block";
+                        document.getElementById("gamename").innerHTML = document.getElementById("rocketleague").innerHTML;
+                    }
+                    fn.onclick = function () {
+                        modal.style.display = "block";
+                        document.getElementById("gamename").innerHTML = document.getElementById("fortnite").innerHTML;
+                    }
+                    r6s.onclick = function () {
+                        modal.style.display = "block";
+                        document.getElementById("gamename").innerHTML = document.getElementById("rainbow").innerHTML;
+                    }
+                    ff.onclick = function () {
+                        modal.style.display = "block";
+                        document.getElementById("gamename").innerHTML = document.getElementById("fifa").innerHTML;
+                    }
+                    fn.onclick = function () {
+                        modal.style.display = "block";
+                        document.getElementById("gamename").innerHTML = document.getElementById("fortnite").innerHTML;
+                    }
+                    ssb.onclick = function () {
+                        modal.style.display = "block";
+                        document.getElementById("gamename").innerHTML = document.getElementById("smash").innerHTML;
+                    }
+                    rc.onclick = function () {
+                        modal.style.display = "block";
+                        document.getElementById("gamename").innerHTML = document.getElementById("rogue").innerHTML;
+                    }
+                    pg.onclick = function () {
+                        modal.style.display = "block";
+                        document.getElementById("gamename").innerHTML = document.getElementById("pubg").innerHTML;
+                    }
+                    // When the user clicks on <span> (x), close the modal
+                    span.onclick = function () {
+                        modal.style.display = "none";
+                    }
+
+                </script>
+            </div>
+        </div>
+    </div>
+
+    <div style="clear: both" class="main_footer" id="grad2">
+        <div style="color: white;font-size: 40px;text-align: center;padding: 20px;">
+            <img src="/images/logo.png" style="width: 20%">
+        </div>
+        <hr style="width: 50%">
+        <br><br><br>
+        <h3 style="text-align: center;color: white">
+            <img src="/images/twitch.png" style="width: 5%;">
+               <a style="text-decoration: none;" target="_blank" href="//localhost:8081"> Watch your favourite streamers </a>
+            <br>
+            <a style="align-items: center;" href="/report">
+                <button  style="width: 23%;" class="tourney_butt">
+                    
+                        <!-- <img src="https://www.flaticon.com/svg/vstatic/svg/1672/1672451.svg?token=exp=1617720253~hmac=717cf796ddc8a1b03e939ddaa2ead0b2" style="width: 5%;"> -->
+                        <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_dVJMow.json" background="transparent" speed="1"
+                            style="float: left; width: 60px; height: 60px;" loop autoplay></lottie-player>
+                    
+                    <span style="padding-left: 23px;padding-top: 13px; float: left;">
+                        Report a player
+                    </span>
+                </button>
+            </a>
+        </h3>
+        <br><br><br>
+    </div>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+</body>
+
+</html>

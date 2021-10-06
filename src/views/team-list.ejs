@@ -1,0 +1,181 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <title>Teams</title>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <link rel="stylesheet" href="/css/HomePage.css">
+     <link rel="stylesheet" href="/css/style.css">
+     
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+     <style>
+         @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+     </style>
+     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+     
+     <style>
+         .accordion {
+           background-color: #eee;
+           color: #444;
+           cursor: pointer;
+           padding: 18px;
+           width: 100%;
+           border: none;
+           text-align: left;
+           outline: none;
+           font-size: 15px;
+           transition: 0.4s;
+         }
+         
+         .active, .accordion:hover {
+           background-color: #ccc;
+         }
+         
+         .accordion:after {
+           content: '\002B';
+           color: #777;
+           font-weight: bold;
+           float: right;
+           margin-left: 5px;
+         }
+         
+         .active:after {
+           content: "\2212";
+         }
+         
+         .panel {
+           padding: 0 18px;
+           background-color: white;
+           max-height: 0;
+           overflow: hidden;
+           transition: max-height 0.2s ease-out;
+         }
+         </style>
+ </head>
+ <body >
+     <div class="main_header" id="grad1" style="text-decoration: none;background-color: black;">
+         <span style="float: left;color: white;font-size: 60px;width:20%;">
+             <img src="/images/logo.png" style="width:100%;margin:20px">
+         </span>
+         <span style="float: left;color: white;margin-top: 40px;
+     font-family: 'Press Start 2P';font-size: 30px">
+             GAME<br>VAMP
+         </span>
+         <span >
+             <div class="topnav" style="text-decoration: none;">
+                 <a  href="/">Home</a>
+                 <a href="/games">Games</a>
+                 <a href="/news">News</a>
+                 <a class="active" href="/teams/team-list">Teams</a>
+                 <a href="/user_match/match">Matches</a>
+                 <a href="/api">Tournaments</a>
+                 <a href="/aboutus">About</a>
+                 <form style="display: inline;" method="POST" action="/logout">
+                     <a>
+                         <button type="submit" class="btn btn-primary" style="background-color:black; outline: none;border: none;">Log out</button>
+                     </a>
+                 </form>
+             </div>
+         </span>
+ 
+     </div>
+     <br>
+     <div style="margin-top: 160px !important;float:left;width:66%;margin-bottom:50px" class="container mt-4">
+         <button class="accordion">Your teams </button>
+         <div class="panel">
+             <div>               
+                <div class="table-data">
+                    <table class="table_">
+                        <tr>
+                            <th>S.N</th>
+                            <th>Team Name</th>
+                            <th>Member One</th>
+                            <th>Member Two</th>
+                            <th>Member Three</th>
+                            <th>Member Four</th>
+                            <th>Member Five</th>
+                            <th>Edit</th>
+                        </tr>
+                        
+                        <%
+                        if(userData.length!=0){
+                        var i=1;
+                        userData.forEach(function(data){
+                        %>
+                        <tr>
+                            <td><%=i; %></td>
+                            <td><%=data.teamname %></td>
+                            <td><%=data.member1 %></td>
+                            <td><%=data.member2 %></td>
+                            <td><%=data.member3 %></td>
+                            <td><%=data.member4 %></td>
+                            <td><%=data.member5 %></td>
+                            <td><a href="/teams/edit/<%=data.id%>"><button class="table_button">Edit</button></a> </td>
+                        </tr>
+                        <%  i++; }) %>
+                        <% } else{ %>
+                            <tr>
+                                <td colspan="7">No Data Found</td>
+                            </tr>
+                        <% } %>
+                    </table>
+                    </div>
+             </div>
+         </div>
+        <div>
+            <a href="/api">
+                <button class="tourney_butt" >
+                    View tournaments
+                </button>
+            </a>
+        </div>
+     </div>  
+     <div class="logged_disp" style="border: none;">
+         <span>
+             <img src="https://www.pngkit.com/png/full/925-9257192_freebie-vector-of-a-desktop-computer-on-transparent.png" style="width: 100%;">
+         </span>
+          <h1 style="color: blanchedalmond;">Logged in as <span id="cookie_see"></span></h1>
+     </div>
+     <div style="clear: both" class="main_footer" id="grad2">
+        <hr style="width: 50%">
+        <br><br><br>
+        <h3 style="text-align: center;color: white">
+            <img src="/images/twitch.png" style="width: 5%;">
+                Watch your favourite streamers
+        </h3>
+        <br><br><br>
+    </div>
+ <script>
+     var acc = document.getElementsByClassName("accordion");
+     var i;
+     
+     for (i = 0; i < acc.length; i++) {
+       acc[i].addEventListener("click", function() {
+         this.classList.toggle("active");
+         var panel = this.nextElementSibling;
+         if (panel.style.maxHeight) {
+           panel.style.maxHeight = null;
+         } else {
+           panel.style.maxHeight = panel.scrollHeight + "px";
+         } 
+       });
+     }
+     </script>
+     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+         crossorigin="anonymous"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+         crossorigin="anonymous"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+         crossorigin="anonymous"></script>
+         <script>
+             document.getElementById("cookie_see").innerHTML=Cookies.get('name');
+             JSON.parse(Cookies.get('name1').slice(2))
+         </script>
+ </body>
+ </html>
+ 

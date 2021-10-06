@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Register Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    
+</head>
+<body  style="background-image: url(https://cdna.artstation.com/p/assets/images/images/021/720/920/original/pixel-jeff-mario.gif?1572709433);background-size: cover;">
+<div class="container" style="float: left;margin-left: 10%;">
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-5 mt-2" style="color :white;backdrop-filter: blur(10px);background-color: rgba(255, 255, 255, 0);box-shadow: 2px 2px 25px black;
+            border-radius: 15px;
+            padding: 80px;">
+                <div>
+                    <% if(errors != "") { %>
+                        <% errors.forEach((item) => { %>
+                            <div class="alert alert-danger">
+                                <%- item %>
+                            </div>
+                        <% }); %>
+                    <% } %>
+                </div>
+                <form method="POST" action="/register" autocomplete="off">
+                    <div class="form-group">
+                        <label for="fullName">Username:</label>
+                        <input type="text" class="form-control" name="fullName" id="fullName" placeholder="Username">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email address: (*)</label>
+                        <input type="email" name="email" class="form-control" id="email" placeholder="Enter email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password: (*)</label>
+                        <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="passwordConfirmation">Confirm password: (*)</label>
+                        <input type="password" class="form-control" name="passwordConfirmation" id="passwordConfirmation" placeholder="Password Confirmation" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary" onsubmit="cookie_create()">Register</button>
+                </form>
+                <br>
+                <div>
+                    If you already have had an account. <a href="/login"><button class="btn btn-primary"  style="margin-top: 10px;">Log in</button></a>
+                </div>
+                <br><br>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-7 login-left" style="float: right;position: absolute;left: 41%;">
+    <img src="../images/logo.png" style="width:100%;margin-top: 8%;">
+    <span style="font-family: 'Press Start 2P', cursive;
+    font-size: 55px;
+    text-shadow: 6px -3px 0em rgb(209 159 228);
+    color: #a92782;
+    margin-left: 179px;">GAME VAMP</span>
+</div>
+</body>
+</html>

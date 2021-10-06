@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>GAME VAMP</title>
+    <link rel="stylesheet" href="/css/HomePage.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Press+Start+2P&display=swap');
+    </style>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div class="main_header" id="grad1">
+        <span style="float: left;color: white;font-size: 60px;width:20%;">
+            <img src="/images/logo.png" style="width:100%;margin:20px">
+        </span>
+        <span style="float: left;color: white;margin-top: 40px;
+    font-family: 'Press Start 2P';font-size: 30px">
+            GAME<br>VAMP
+        </span>
+        <span >
+            <div class="topnav">
+                <a href="/">Home</a>
+                <a class="active" href="/games">Games</a>
+                <a href="/news">News</a>
+                <a href="/teams/team-list">Teams</a>
+                <a href="/user_match/match">Matches</a>
+                <a href="/api">Tournaments</a>
+                <a href="/aboutus">About</a>
+                <form style="display: inline;" method="POST" action="/logout">
+                    <a>
+                        <button type="submit" class="btn btn-primary" >Log out</button>
+                    </a>
+                </form>
+            </div>
+        </span>
+    </div>
+    <div style="clear: both;font-size: 50px;text-align: center;color: white;padding: 50px">
+        Tournaments
+    </div>
+    <div>
+        <h1 style="margin-left: 50px;color: white">Games Available for Tournament</h1>
+        <hr style="margin-right: 500px;margin-left: 50px">
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h2 style="width: 70%" id="gamename">Modal Header</h2>
+                </div>
+                <div class="modal-body">
+                    <p>Major tournaments available :</p>
+                    <p><img src="https://storage-asset.msi.com/event/2019/esl-partner/images/esl-logo-2.png" style="width: 35%;">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/3/36/Evo_Championship_Series_Logo.png" style="width: 20%;"></p>
+                </div>
+                <div class="modal-footer">
+                    <button id="gamedata">See more</button>
+                </div>
+            </div>
+        </div>
+        <!--===================================-->
+        <div class="wrapper">
+            <div class="cards">
+                <button id="dota">
+                    <figure class="card">
+                        <img src="https://static-cdn.jtvnw.net/ttv-boxart/Dota%202.jpg" />
+                        <figcaption id="dota2">Dota 2</figcaption>
+                    </figure>
+                </button>
+                <button id="csgo">
+                    <figure class="card">
+                        <img src="https://picfiles.alphacoders.com/145/thumb-145318.jpg" />
+                        <figcaption id="cs">CSGO</figcaption>
+                    </figure>
+                </button>
+                <button id="valo">
+                    <figure class="card">
+                        <img src="https://images-na.ssl-images-amazon.com/images/I/71Rm-bSojSL._AC_SL1500_.jpg" />
+                        <figcaption id="valorant">Valorant</figcaption>
+                    </figure>
+                </button>
+                <button id="ow">
+                    <figure class="card">
+                        <img
+                            src="https://cdna.artstation.com/p/assets/images/images/007/977/966/medium/will-murai-blizzcon2017-0003-overwatch.jpg?1509676862" />
+                        <figcaption id="overwatch">Overwatch</figcaption>
+                    </figure>
+                </button>
+                <button id="lol">
+                    <figure class="card">
+                        <img
+                            src="https://cdna.artstation.com/p/assets/images/images/018/649/488/large/jay-league-of-legends-poster.jpg?1560191675" />
+                        <figcaption id="league">League of Legends</figcaption>
+                    </figure>
+                </button>
+                <button id="rl">
+                    <figure class="card">
+                        <img
+                            src="https://static.displate.com/857x1200/displate/2017-06-24/143dc842aafca1d52c6afacde6488f55_2aca8de231fa48a68a2c4fed26f9a33a.jpg" />
+                        <figcaption id="rocketleague">Rocket League</figcaption>
+                    </figure>
+                </button>
+                <button id="fn">
+                    <figure class="card">
+                        <img src="http://cdn.shopify.com/s/files/1/1948/2603/products/96_1200x1200.jpg?v=1531236464" />
+                        <figcaption id="fortnite">Fortnite</figcaption>
+                    </figure>
+                </button>
+                <button id="r6s">
+                    <figure class="card">
+                        <img
+                            src="https://render.fineartamerica.com/images/rendered/search/poster/images/artworkimages/medium/3/rainbow-six-siege-lesion-long-art.jpg" />
+                        <figcaption id="rainbow">Rainbow Six Seige</figcaption>
+                    </figure>
+                </button>
+                <button id="ff">
+                    <figure class="card">
+                        <img src="https://m.media-amazon.com/images/I/614oox3qvcL.jpg" />
+                        <figcaption id="fifa">Fifa</figcaption>
+                    </figure>
+                </button>
+                <button id="ssb">
+                    <figure class="card">
+                        <img src="https://images-na.ssl-images-amazon.com/images/I/71RX-Ma8uNL._SY741_.jpg" />
+                        <figcaption id="smash">Super Smash Bros</figcaption>
+                    </figure>
+                </button>
+                <button id="rc">
+                    <figure class="card">
+                        <img
+                            src="https://image.api.playstation.com/vulcan/img/rnd/202007/1715/LU6PNrHpre26JO6mr2TUeXck.png" />
+                        <figcaption id="rogue">Rogue Company</figcaption>
+                    </figure>
+                </button>
+                <button id="pg">
+                    <figure class="card">
+                        <img src="https://i.pinimg.com/originals/1e/b0/07/1eb0075317387869e6e2c7cf29a88fcb.jpg" />
+                        <figcaption id="pubg">PUBG:Players Unknown BattleGround</figcaption>
+                    </figure>
+                </button>
+                <script>
+                    // Get the modal
+                    var modal = document.getElementById("myModal");
+
+                    // Get the button that opens the modal
+                    var dota = document.getElementById("dota");
+                    var csgo = document.getElementById("csgo");
+                    var valo = document.getElementById("valo");
+                    var ow = document.getElementById("ow");
+                    var lol = document.getElementById("lol");
+                    var rl = document.getElementById("rl");
+                    var fn = document.getElementById("fn");
+                    var r6s = document.getElementById("r6s");
+                    var ff = document.getElementById("ff");
+                    var ssb = document.getElementById("ssb");
+                    var rc = document.getElementById("rc");
+                    var pg = document.getElementById("pg");
+
+                    // Get the <span> element that closes the modal
+                    var span = document.getElementsByClassName("close")[0];
+
+                    // When the user clicks the button, open the modal
+
+                    dota.onclick = function () {
+                        modal.style.display = "block";
+                        document.getElementById("gamename").innerHTML = document.getElementById("dota2").innerHTML;
+                        document.getElementById("gamedata").innerHTML = '<a href="/api/dota2"> See more </a>';
+                    }
+                    csgo.onclick = function () {
+                        modal.style.display = "block";
+                        document.getElementById("gamename").innerHTML = document.getElementById("cs").innerHTML;
+                        document.getElementById("gamedata").innerHTML = '<a href="/api"> See more </a>';
+                    }
+                    valo.onclick = function () {
+                        modal.style.display = "block";
+                        document.getElementById("gamename").innerHTML = document.getElementById("valorant").innerHTML;
+                    }
+                    ow.onclick = function () {
+                        modal.style.display = "block";
+                        document.getElementById("gamename").innerHTML = document.getElementById("overwatch").innerHTML;
+                    }
+                    lol.onclick = function () {
+                        modal.style.display = "block";
+                        document.getElementById("gamename").innerHTML = document.getElementById("league").innerHTML;
+                        document.getElementById("gamedata").innerHTML = '<a href="/api/lol"> See more </a>';
+                    }
+                    rl.onclick = function () {
+                        modal.style.display = "block";
+                        document.getElementById("gamename").innerHTML = document.getElementById("rocketleague").innerHTML;
+                    }
+                    fn.onclick = function () {
+                        modal.style.display = "block";
+                        document.getElementById("gamename").innerHTML = document.getElementById("fortnite").innerHTML;
+                    }
+                    r6s.onclick = function () {
+                        modal.style.display = "block";
+                        document.getElementById("gamename").innerHTML = document.getElementById("rainbow").innerHTML;
+                    }
+                    ff.onclick = function () {
+                        modal.style.display = "block";
+                        document.getElementById("gamename").innerHTML = document.getElementById("fifa").innerHTML;
+                    }
+                    fn.onclick = function () {
+                        modal.style.display = "block";
+                        document.getElementById("gamename").innerHTML = document.getElementById("fortnite").innerHTML;
+                    }
+                    ssb.onclick = function () {
+                        modal.style.display = "block";
+                        document.getElementById("gamename").innerHTML = document.getElementById("smash").innerHTML;
+                    }
+                    rc.onclick = function () {
+                        modal.style.display = "block";
+                        document.getElementById("gamename").innerHTML = document.getElementById("rogue").innerHTML;
+                    }
+                    pg.onclick = function () {
+                        modal.style.display = "block";
+                        document.getElementById("gamename").innerHTML = document.getElementById("pubg").innerHTML;
+                    }
+                    // When the user clicks on <span> (x), close the modal
+                    span.onclick = function () {
+                        modal.style.display = "none";
+                    }
+
+                    // When the user clicks anywhere outside of the modal, close it
+                    window.onclick = function (event) {
+                        if (event.target == modal) {
+                            modal.style.display = "none";
+                        }
+                    }
+
+                </script>
+            </div>
+        </div>
+    </div>
+
+    <div style="clear: both" class="main_footer" id="grad2">
+        <div style="color: white;font-size: 40px;text-align: center;padding: 20px;">
+            <img src="/images/logo.png" style="width: 20%">
+        </div>
+        <hr style="width: 50%">
+        <br><br><br>
+        <h3 style="text-align: center;color: white">
+            <img src="/images/twitch.png" style="width: 5%;">
+                Watch your favourite streamers
+        </h3>
+        <br><br><br>
+    </div>
+</body>
+
+</html>

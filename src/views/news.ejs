@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/HomePage.css">
+    <title>NEWS</title>
+    <style>
+        .tableimg {
+            width: 300px;
+            height: 300px;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body>
+    <div style="margin-left: 40%;margin-top: 30px;margin-bottom: 20px;">
+        <img src="/images/logo.png" style="width: 40%;">
+    </div>
+    
+    <div style="float: left;margin-left: 100px;border: 1px solid white;width: 50%; border-radius: 20px;box-shadow: 2px 2px 1em black;">
+        <table class="news_table" >
+            <% data.forEach(function(data){ %>
+                    <% if( data.source.name != "Reuters" && data.source.name != "TechCrunch") { %>
+                <tr>
+                    <td >
+                        <img class="tableimg" src="<%= data.urlToImage %>" alt="" style="size: 300px;" >
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h1><%= data.title%></h1>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <%= data.description %>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        
+                        <a target="__blank" href="<%= data.url %>" style="text-decoration: none;"  >View Full article</a> 
+                        <h1>       </h1>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h4>Author: </h4><%= data.author%>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        <h4>Published on: </h4><%= data.publishedAt %>
+                    </td> 
+                </tr>
+                <tr>
+                    <td>
+                        <form action="/news/<%= data.title%>" method="post">
+                            <button class="news_like">
+                                Like
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+                <% } %>
+                <% }); %>
+        </table>
+    </div>
+    <div style="float: right;
+    border: 1px solid white;
+    border-radius: 15px;
+    padding: 25px;
+    margin-right: 3%;
+    width: 26%;position: sticky; ">
+        
+        <img src="/images/pc.webp" style="margin-left: 90px;width: 55%;">
+        
+         <h1 style="color: blanchedalmond;">Logged in as <%= user.fullname%><br>Email: <%=user.email%> </h1>
+         <a href="/newslike"><button class="view_like">View liked Articles</button></a> 
+    </div>
+</body>
+</html>
